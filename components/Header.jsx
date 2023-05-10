@@ -30,16 +30,16 @@ export const Header = () => {
   return (
     <header
       className={`${
-        isLight ? "bg-slate-100 text-slate-900" : "bg-green-950 text-slate-100"
-      } fixed w-full grid grid-cols-3 md:grid-cols-2 col-span-2 md:col-span-1 grid-flow-dense px-5 py-6 md:px-12 md:flex md:justify-between md:items-center`}
+        isLight ? "bg-slate-100 text-slate-900" : "bg-slate-900 text-slate-100"
+      } fixed shadow-md w-full grid grid-cols-3 md:grid-cols-2 col-span-2 md:col-span-1 grid-flow-dense px-5 py-6 md:px-12 md:flex md:justify-between md:items-center`}
     >
-      <div className="col-span-3 md:col-span-1 flex justify-between md:space-y-0 md:space-x-7">
+      <div className="col-span-3 md:col-span-1 shadow-sm flex justify-between md:space-y-0 md:space-x-7">
         <Link href={"/"}>
           {" "}
           <div className="logo font-black text-2xl" onClick={handleFalseNav}>COUNTRY REST</div>
         </Link>
         <AiOutlineMenu
-          className="text-white text-5xl md:hidden"
+          className={`${ isLight ? "text-gray-900" : "text-gray-200"} text-3xl md:hidden`}
           onClick={handleNav}
         />
         <ul className="hidden md:flex space-x-8 md:space-x-12 md:items-center text-lg">
@@ -101,7 +101,7 @@ export const Header = () => {
       <ul
         className={`${
           nav ? "h-auto p-5" : "h-0"
-        } w-[100%] bg-yellow-500 text-right space-y-6 overflow-hidden md:hidden transition-all duration-500 ease-in-out col-span-3`}
+        } w-[100%] text-right space-y-6 overflow-hidden md:hidden transition-all duration-500 ease-in-out col-span-3`}
       >
         <Link href={"/"} onClick={handleFalseNav}>
           Home
@@ -113,7 +113,7 @@ export const Header = () => {
         <li
           className={`${
             isLight ? "border-slate-900" : "border-slate-100"
-          } col-span-1 border px-2 py-2 cursor-pointer `}
+          } w-36 ml-auto border px-2 py-2 cursor-pointer `}
           onClick={handleLightMode}
         >{`${isLight ? "Dark mode" : "Light mode"}`}</li>
       </ul>

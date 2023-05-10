@@ -82,7 +82,11 @@ function RestPages() {
               value={val}
               onChange={handleChange}
               id="search-dropdown"
-              class={`${ isLight ? 'placeholder-gray-700' : 'placeholder-gray-400'} block p-2.5 w-full md:w-72 text-sm text-gray-900 bg-gray-50 rounded-l-lg border-l-gray-100 border-l-2 border-r-0 border border-gray-300 focus:border-gray-600 dark:bg-transparent dark:border-gray-600 dark:text-white`}
+              class={`${
+                isLight
+                  ? "placeholder-gray-700 bg-transparent"
+                  : "placeholder-gray-400 bg-transparent"
+              } block p-2.5 w-full md:w-72 text-sm text-gray-900 bg-gray-50 rounded-l-lg border-l-gray-100 border-l-2 border-r-0 border border-gray-300 focus:border-gray-600 dark:border-gray-600 dark:text-white`}
               placeholder="Search Country..."
             />
             <button
@@ -94,7 +98,7 @@ function RestPages() {
                 aria-hidden="true"
                 class="w-8 h-5"
                 fill="none"
-                stroke="currentColor"
+                stroke={`${isLight ? "black" : "white"}`}
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -108,23 +112,27 @@ function RestPages() {
             </button>
           </div>
 
-          <div class="filter-by-region flex col-span-2 md:col-auto px-5 md:ml-auto md:px-12">
+          <div
+            class={`${
+              isLight ? "text-gray-900" : "text-gray-100"
+            } filter-by-region flex col-span-2 md:col-auto px-5 md:ml-auto md:px-12`}
+          >
             <select
               name=""
               id=""
               value={region}
-              className="py-2.5 bg-transparent w-52 px-2 text-md font-medium text-gray-900 border border-gray-300 dark:border-gray-500 dark:text-slate-400 rounded-lg focus:outline-none dark:bg-transparent"
+              className="py-2.5 bg-transparent w-52 px-2 text-md font-medium border border-gray-300 dark:border-gray-500 dark:text-slate-400 rounded-lg focus:outline-none dark:bg-transparent"
               onChange={handleRegion}
             >
               <option
                 value=""
-                className="dark:bg-slate-900 block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="dark:bg-slate-900 block hover:bg-gray-100 dark:hover:bg-gray-600"
               >
                 All
               </option>
               <option
                 value="Africa"
-                className="w-52 dark:bg-slate-900 block hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                className="w-52 dark:bg-slate-900 block hover:bg-gray-100 dark:hover:bg-gray-600"
               >
                 Africa
               </option>
@@ -263,7 +271,13 @@ function RestPages() {
               return (
                 <>
                   <Link href={`/views/${cca3}`} key={idx}>
-                    <div className={ `${ isLight ? 'bg-slate-100 text-slate-900' : 'bg-slate-950 text-slate-100'} card rounded-md shadow-md md:h-96` }>
+                    <div
+                      className={`${
+                        isLight
+                          ? "bg-slate-100 text-slate-900"
+                          : "bg-slate-950 text-slate-100 border border-slate-900"
+                      } card rounded-md shadow-md md:h-96`}
+                    >
                       <div className="flag rounded-t-md">
                         <img
                           src={flags.png}
